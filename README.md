@@ -43,8 +43,10 @@ It puts errors / finished files in the corresponding subfolder so you need to ma
 
 `mkdir -p kafka/source/finished`
 
-### Create topic
-kafka-topics --bootstrap-server localhost:9092  --create --topic radius-accounting --partitions 1
+### Create topics
+`kafka-topics --bootstrap-server localhost:9092  --create --topic radius-accounting --partitions 1`
+
+`kafka-topics --bootstrap-server localhost:9092  --create --topic total-bytes-downloaded --partitions 1`
 
 ### Managing connectors
 
