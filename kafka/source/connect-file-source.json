@@ -8,7 +8,9 @@
     "finished.path": "/kafka/source/finished",
     "input.file.pattern": "radius-accounting.*csv",
     "topic": "radius-accounting",
-    "schema.generation.enabled": true,
-    "csv.first.row.as.header": true
+    "schema.generation.enabled": false,
+    "csv.first.row.as.header": true,
+    "key.schema": "{\n  \"name\": \"com.giffgaff.radius.accounting.serialisation.schema.AccountingRecordKey\",\n  \"type\": \"STRUCT\",\n  \"isOptional\": false,\n  \"fieldSchemas\": {\n    \"username\": {\n      \"type\": \"STRING\",\n      \"isOptional\": false\n    }\n  }\n}",
+    "value.schema": "{\n  \"name\": \"com.giffgaff.radius.accounting.serialisation.schema.AccountingRecord\",\n  \"type\": \"STRUCT\",\n  \"isOptional\": false,\n  \"fieldSchemas\": {\n    \"eventTimestamp\": {\n      \"type\": \"STRING\",\n      \"isOptional\": false\n    },\n    \"username\": {\n      \"type\": \"STRING\",\n      \"isOptional\": false\n    },\n    \"packetsDownloaded\": {\n      \"type\": \"INT64\",\n      \"isOptional\": false\n    },\n    \"packetsUploaded\": {\n      \"type\": \"INT64\",\n      \"isOptional\": false\n    }\n  }\n}"
   }
 }

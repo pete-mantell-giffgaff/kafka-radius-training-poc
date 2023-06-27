@@ -1,5 +1,6 @@
 package com.giffgaff.radius.accounting.serialisation.serde;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.giffgaff.radius.accounting.serialisation.schema.AccountingRecord;
 import org.apache.kafka.common.header.Headers;
@@ -16,14 +17,17 @@ public class AccountingRecordDeserialiser implements Deserializer<AccountingReco
   public AccountingRecord deserialize(String topic, byte[] data) {
     try {
       logger.info("Deserialising {} from {}", new String(data), topic);
-      return mapper.readValue(data, AccountingRecord.class);
+
+      JsonNode tree = mapper.readTree(data);
+      JsonNode payload = tree.get("payload");
+
+      AccountingRecord accountingRecord = mapper.readValue(payload.traverse(), AccountingRecord.class);
+
+      logger.debug("Successfully deserialised record {}", accountingRecord);
+
+      return accountingRecord;
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
-  }
-
-  @Override
-  public AccountingRecord deserialize(String topic, Headers headers, byte[] data) {
-    return Deserializer.super.deserialize(topic, headers, data);
   }
 }

@@ -40,4 +40,14 @@ public class AccountingRecord {
   public void setPacketsUploaded(Long packetsUploaded) {
     this.packetsUploaded = packetsUploaded;
   }
+
+  @Override
+  public String toString() {
+    return "AccountingRecord{" +
+        "eventTimestamp='" + eventTimestamp + '\'' +
+        ", username='" + username + '\'' +
+        ", packetsDownloaded=" + packetsDownloaded +
+        ", packetsUploaded=" + packetsUploaded +
+        '}';
+  }
 }
