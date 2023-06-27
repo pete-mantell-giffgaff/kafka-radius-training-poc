@@ -3,9 +3,12 @@
   "config": {
     "connector.class": "com.github.jcustenborder.kafka.connect.spooldir.SpoolDirCsvSourceConnector",
     "tasks.max": 1,
-    "input.path": "/kafka/source",
-    "error.path": "/kafka/source",
-    "input.file.pattern": "radius-accounting.csv",
-    "topic": "radius-accounting-topic"
+    "input.path": "/kafka/source/input",
+    "error.path": "/kafka/source/errors",
+    "finished.path": "/kafka/source/finished",
+    "input.file.pattern": "radius-accounting.*csv",
+    "topic": "radius-accounting",
+    "schema.generation.enabled": true,
+    "csv.first.row.as.header": true
   }
 }
