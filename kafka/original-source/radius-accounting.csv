@@ -1,4 +1,4 @@
-EventTimestamp, Username, PacketsDownloaded, PacketsUploaded
+eventTimestamp,username,packetsDownloaded,packetsUploaded
 27/06/2023 11:12:12, user1, 103, 27
 27/06/2023 11:12:17, user2, 33, 17
 27/06/2023 11:12:22, user1, 47, 35
