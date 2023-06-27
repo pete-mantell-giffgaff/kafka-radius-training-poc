@@ -5,26 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.giffgaff</groupId>
-    <artifactId>broadband-poc-order-adapter-svc</artifactId>
+    <artifactId>kafka-radius-training-poc</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
-
-
-    <modules>
-        <module>broadband-poc-order-adapter-api</module>
-        <module>broadband-poc-order-adapter-api-it</module>
-    </modules>
-
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.8.2</version>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
